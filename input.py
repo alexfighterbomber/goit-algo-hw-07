@@ -95,13 +95,13 @@ def show_birthday(args, book):
 
 @input_error
 def birthdays(book):
-    out_str = ''
+    out_str = '\nCongratulation days:\n--------------------\n'
     sorted_birthdays = book.get_upcoming_birthdays()
     for person in sorted_birthdays:
         name = person.get('name')
         birthday = person.get('birthday')
         out_str += f"{name} - {birthday.strftime("%d.%m.%Y")}\n"
-    return out_str.strip()
+    return out_str
  
 def no_one():
     return "Такий тут не живе!"  # Возвращаем значение по ключу или ошибку если ключ не найден   
