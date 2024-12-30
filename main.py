@@ -2,7 +2,7 @@
 from base_classes import *
 from record import *
 from address_book import *
-from input_error import *
+from input import *
 
 
     # def date_to_string(self, date):
@@ -22,36 +22,37 @@ def main():
 
         elif command == "hello":
             print("How can I help you?")
-            pass
+            
         elif command == "add":
-            # реалізація
-            pass
+            print(add_contact(args, book))
+            
         elif command == "change":
-            # реалізація
-            pass
+            print(change_contact(args, book))
+            
         elif command == "phone":
-            # реалізація
-            pass
+            print(show_phone(args, book))
+
         elif command == "all":
-            # реалізація
-            pass
+            print(show_all(book))
+
         elif command == "add-birthday":
-            # реалізація
-            pass
+            print(add_birthday(args, book))
+            
         elif command == "show-birthday":
-            # реалізація
-            pass
+            print(show_birthday(args, book))
+
         elif command == "birthdays":
-            # реалізація
-            pass
+            print(birthdays(book))
+            
         else:
             print("Invalid command.")
             pass
 
 
 
-# if __name__ == "__main__":
-#     main()
+
+if __name__ == "__main__":
+    main()
 
 
  # Тестування

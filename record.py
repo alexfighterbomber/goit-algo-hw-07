@@ -1,4 +1,4 @@
-from base_classes import Name, Phone, Birthday
+from base_classes import *
 
 class Record:
     def __init__(self, name):
@@ -31,6 +31,8 @@ class Record:
     
     def add_birthday(self, bd):
         self.birthday = Birthday(bd)
+        
+
                 
     def __str__(self):
         return f"Contact name: {self.name.value}, phones: {'; '.join(p.value for p in self.phones)}, birthday: {self.birthday}"
