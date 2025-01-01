@@ -29,11 +29,6 @@ class Birthday(Field):
         
     def bd_date(self):
         return datetime.strptime(self.value, "%d.%m.%Y").date()
-    
-    
-    # def bd_str(self, bd_date):
-    #     return datetime.strftime(bd_date, "%d.%m.%Y")
-        
 
     def __str__(self):
         return self.value
