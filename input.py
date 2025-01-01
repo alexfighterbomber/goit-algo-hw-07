@@ -97,11 +97,12 @@ def show_birthday(args, book):
 def birthdays(book):
     out_str = '\nCongratulation days:\n--------------------\n'
     sorted_birthdays = book.get_upcoming_birthdays()
+    if not sorted_birthdays: return f'No birthdays in the next 7 days'
     for person in sorted_birthdays:
         name = person.get('name')
         birthday = person.get('birthday')
-        out_str += f"{name} - {birthday.strftime("%d.%m.%Y")}\n"
+        out_str += f'{name} - {birthday}\n'
     return out_str
  
 def no_one():
-    return "Такий тут не живе!"  # Возвращаем значение по ключу или ошибку если ключ не найден   
+    return "Такий тут не живе!"  # Возвращаем  ошибку

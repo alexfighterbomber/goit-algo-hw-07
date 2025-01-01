@@ -22,7 +22,8 @@ class AddressBook(UserDict):
         today = date.today()
         for record in self.data.values():
             if record.birthday:
-                birthday_this_year = record.birthday.bd.replace(year=today.year)
+                bd_date = record.birthday.bd_date()
+                birthday_this_year = bd_date.replace(year=today.year)
                 if birthday_this_year < today:
                     birthday_this_year = birthday_this_year.replace(year=today.year + 1)
                 days_until_birthday = (birthday_this_year - today).days
@@ -32,8 +33,10 @@ class AddressBook(UserDict):
                         "name": record.name.value,
                         "birthday": congratulation_date
                     })
-        return sorted(upcoming_birthdays, key=lambda x: x["birthday"])
+        bd_sort = sorted(upcoming_birthdays, key=lambda x: x["birthday"])
+        return [{'name': item['name'], 'birthday': item['birthday'].strftime('%d.%m.%y')} for item in bd_sort]
 
+    
     def find_next_weekday(self, start_date, weekday):
         start_weekday = start_date.weekday()
         if  start_weekday >= weekday : weekday += 7
